@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:local="clr-namespace:app"
+             x:Class="app.MainPage"
+             Title="Accueil"
+             BackgroundColor="bisque">
+
+    <Grid RowDefinitions="auto,*">
+
+        <local:Head Grid.Row="0"/>
+
+
+        <Grid Style="{StaticResource gridMain}" Grid.Row="1">
+
+            <StackLayout Grid.Row =" 1" Orientation="Horizontal" HorizontalOptions="Center" Spacing="15">
+                <Entry x:Name="entry"
+                       Style="{StaticResource searchBar}"
+                       Text="{Binding SearchName}"/>
+                <Button Style="{StaticResource buttonSearch}"
+                        Clicked="Search_Clicked"/>
+                <Button Style="{StaticResource buttonFav}"/>
+            </StackLayout>
+            <ScrollView Grid.Row="2">
+                <FlexLayout HorizontalOptions="Center" BindableLayout.ItemsSource="{Binding listR}" Wrap="Wrap" >
+
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+
+                            <Button Style="{StaticResource buttonRecipe}" Margin="20"
+                                        ImageSource="{Binding ImageName}"
+                                        Text="{Binding Name}" 
+                                        Clicked="Button_Clicked"/>
+                        </DataTemplate>
+
+                    </BindableLayout.ItemTemplate>
+
+                </FlexLayout>
+            </ScrollView>
+
+        </Grid>
+    </Grid>
+
+</ContentPage>

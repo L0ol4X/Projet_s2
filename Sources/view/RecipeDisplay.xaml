@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:conv="clr-namespace:app.Converters"
+             xmlns:local="clr-namespace:app"
+             x:Class="app.RecipeDisplay"
+            Title="Recipe" > 
+    
+    <ContentPage.Resources>
+        <conv:IntToString x:Key="cost"/>
+    </ContentPage.Resources>
+    
+    <ScrollView>
+        <StackLayout BackgroundColor="bisque"><!--oldlace,peachpuff, bisque-->
+
+            <local:Head></local:Head>
+
+            <Label Style="{StaticResource titleRecipe}"
+                   Text="{Binding SelectedRecipe.Name}"/>
+
+            <StackLayout HorizontalOptions="Center">
+                <Image Style="{StaticResource imageRecipe}"
+                Source="{Binding SelectedRecipe.ImageName}"/>
+            </StackLayout>
+
+            <StackLayout HorizontalOptions="Center" Orientation="Horizontal" Spacing="75" >
+                <!-- time of the recipe-->
+                <StackLayout Orientation="Horizontal">
+                    <Image  Source="clock.png"
+                        HeightRequest="30"/>
+                    <Label Text="&#160; : &#160;"                       
+                        FontSize="26"/>
+                    <Label Text="{Binding SelectedRecipe.Time}"                       
+                        FontSize="26"/>
+                    <Label Text=" minute.s"                       
+                        FontSize="26"/>
+                </StackLayout>
+                <!-- cost of the recipe-->
+                <Label Text="{Binding SelectedRecipe.Cost, Converter={StaticResource cost}}"                       
+                        FontSize="30"/>
+                <!-- level of the recipe-->
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="level.png"
+                       HeightRequest="30"/>
+                    <Label Text="&#160; : &#160;"                       
+                        FontSize="26"/>
+                    <Label Text="{Binding SelectedRecipe.Level}"                       
+                        FontSize="28"/>
+                </StackLayout>
+
+            </StackLayout>
+
+
+            <StackLayout Margin="20" BindingContext="{Binding SelectedRecipe}">
+                <Label Style="{StaticResource stepsRecipe}" 
+                       Text="Ingrédients : &#10;"/>
+                <ListView ItemsSource="{Binding Ings}" HorizontalOptions="Center">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <HorizontalStackLayout HorizontalOptions="Center">
+                                    <Label Text="-  &#160; " Style="{StaticResource stepsRecipe}"/>
+                                    <Label Text="{Binding Nom}" Style="{StaticResource stepsRecipe}" />
+                                    <Label Text="&#160; " Style="{StaticResource stepsRecipe}"/>
+                                    <Label Text="{Binding Qte}" Style="{StaticResource stepsRecipe}" />
+                                </HorizontalStackLayout>                                
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+          
+            </StackLayout>
+
+            <StackLayout Margin="20">
+                <Label Style="{StaticResource stepsRecipe2}"
+                       Text="{Binding SelectedRecipe.Steps}"/>
+            </StackLayout>
+
+
+            <Button Style="{StaticResource buttonAddFav}"
+                    Clicked="Favori_Clicked"/>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

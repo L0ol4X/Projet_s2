@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:local="clr-namespace:app"
+             BackgroundColor="Bisque"
+             x:Class="app.IngsForRecipe"
+             x:Name="ings"
+             Title="IngsForRecipe">
+
+    <Grid RowDefinitions="auto,*">
+
+        <local:Head Grid.Row="0"/>
+
+        <ScrollView Grid.Row="1">
+            <StackLayout>
+                <ListView ItemsSource="{Binding Inlist}" HorizontalOptions="Center">
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid ColumnDefinitions="auto, auto, auto, auto" Margin="30" HorizontalOptions="Center">
+                                    <Label Grid.Column="0" Text="Ingrédient :" Margin="20"/>
+                                    <Entry Grid.Column="1" Text="{Binding Nom, Mode=TwoWay}" WidthRequest="200" Margin="20"/>
+                                    <Entry Grid.Column="2" Text="{Binding Qte.Qtite}" WidthRequest="60" Margin="20"/>
+                                    <Picker Grid.Column="3" SelectedItem="{Binding Qte.Unite}" ItemsSource="{Binding Unites, Source={x:Reference ings}}" Margin="20" WidthRequest="110"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <Button Style ="{StaticResource buttonValidate}" Clicked="OK_Clicked"/>
+            </StackLayout>
+            
+
+        </ScrollView>
+        
+
+
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:local="clr-namespace:app"
+             BackgroundColor="Bisque"
+             x:Class="app.Meal"
+             Title="Meal">
+
+
+
+    <Grid RowDefinitions="auto,*">
+
+        <local:Head Grid.Row="0"/>
+
+        <ScrollView Grid.Row="1">
+            <Grid Style="{StaticResource gridMain}" RowDefinitions="0, 50,50,*">
+
+                <StackLayout Style="{StaticResource styleStackDessert}">
+                    <Label Text="Plats"
+                            FontSize="40"/>
+                </StackLayout>
+
+                <StackLayout Style="{StaticResource layoutButtons}" >
+                    <Button Text="Salades"
+                            Style="{StaticResource buttonDetail}"
+                            Clicked="Salade_Clicked"/>
+
+                    <Button Text="Quiches"
+                            Style="{StaticResource buttonDetail}"
+                            Clicked="Quiche_Clicked"/>
+
+                    <Button Text="Base viande"
+                            Style="{StaticResource buttonDetail}"
+                            Clicked="Viande_Clicked"/>
+                </StackLayout>
+
+                <ScrollView Grid.Row="3">
+                    <FlexLayout HorizontalOptions="Center" BindableLayout.ItemsSource="{Binding}" Wrap="Wrap" >
+
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+
+                                <Button Style="{StaticResource buttonRecipe}" Margin="20"
+                                        ImageSource="{Binding ImageName}"
+                                        Text="{Binding Name}"
+                                        Clicked="But_Clicked"/>
+                            </DataTemplate>
+
+                        </BindableLayout.ItemTemplate>
+
+                    </FlexLayout>
+                </ScrollView>
+
+
+            </Grid>
+
+        </ScrollView>
+
+    </Grid>
+
+
+</ContentPage>

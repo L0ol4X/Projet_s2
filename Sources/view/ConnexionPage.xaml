@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:app"
+             x:Class="app.ConnexionPage"
+             Title="ConnexionPage"
+             BackgroundColor="bisque">
+
+
+    <Grid RowDefinitions="auto, *" HorizontalOptions="Fill" VerticalOptions="Start" RowSpacing="120">
+        <local:Head/>
+
+        <StackLayout Grid.Row="1" >
+            <Label Text="CONNEXION &#10;"
+                   FontSize="25"
+                   HorizontalOptions="Center"/>
+            <Entry Style="{StaticResource pseudoEntry}"
+                   Placeholder="Enter your pseudo"
+                   Text="{Binding UserName}"/>
+            <Entry Style="{StaticResource passwordEntry}"
+                   Placeholder="Enter your password"
+                   Text="{Binding Passwd}"/>
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Button Style="{StaticResource buttonCancel}"
+                        Clicked="CancelCo_Clicked"/>
+                <Button Style="{StaticResource buttonValidate}"
+                        Clicked="ValiderCo_Clicked"/>
+            </HorizontalStackLayout>
+           
+        </StackLayout>        
+        
+    </Grid>
+   
+    
+</ContentPage>

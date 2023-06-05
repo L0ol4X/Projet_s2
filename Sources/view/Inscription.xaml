@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:app"
+             x:Class="app.Inscription"
+             Title="Inscription"
+             BackgroundColor="Bisque">
+
+
+
+    <Grid RowDefinitions="auto, *" HorizontalOptions="Fill" VerticalOptions="Start" RowSpacing="120">
+        <local:Head/>
+       
+
+        <StackLayout Grid.Row="1" >
+            <Label Text="INSCRIPTION &#10;"
+                        FontSize="25"
+                        HorizontalOptions="Center"/>
+            <Entry Style="{StaticResource pseudoEntry}"
+                        Placeholder="Enter a pseudo"
+                   Text="{Binding First.UserName}"/>
+            
+            <Entry Style="{StaticResource passwordEntry}"
+                   Placeholder="Enter a password"
+                   Text="{Binding First.Passwd}"/>
+            
+            <Entry Placeholder="Confirm password"
+                   Style="{StaticResource pseudoEntry}"
+                   IsPassword="True"
+                   Text="{Binding SecondPassword}"/>
+            
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Button Style="{StaticResource buttonCancel}"
+                        Clicked="Cancel_Clicked"/>
+                <Button Style="{StaticResource buttonValidate}"
+                        Clicked="Valider_Clicked"/>
+            </HorizontalStackLayout>
+        </StackLayout>
+    </Grid>
+            
+</ContentPage>

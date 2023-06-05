@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:local="clr-namespace:app"
+             BackgroundColor="Bisque"
+             x:Class="app.AddRecipe"
+             Title="AddRecipe">
+
+
+    <Grid RowDefinitions="auto,auto, *">
+
+        <local:Head Grid.Row="0"/>
+
+        <StackLayout Style="{StaticResource styleStackDessert}">
+            <Label Text="Nouvelle Recette"
+                            FontSize="40"
+                   Margin="40"/>
+        </StackLayout>
+
+        
+            <Grid Grid.Row="2" RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, auto, auto">
+                <HorizontalStackLayout Grid.Row="0" HorizontalOptions="Center">
+                    <Label Text="Nom de la recette :" Margin="10"/>
+                    <Entry Text="{Binding ToAdd.Name}" WidthRequest="200"/>
+                </HorizontalStackLayout>
+                
+                <HorizontalStackLayout Grid.Row="1" HorizontalOptions="Center">
+                    <Label Text="Type de la recette :" Margin="10"/>
+                    <Picker SelectedItem="{Binding ToAdd.Type}" ItemsSource="{Binding Types}" WidthRequest="200"/>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Grid.Row="2" HorizontalOptions="Center">
+                    <Label Text="Nom de la photo de la recette :" Margin="10"/>
+                    <Entry Text="{Binding ToAdd.ImageName}" WidthRequest="170"/>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Grid.Row="3" HorizontalOptions="Center">
+                    <Label Text="Temps de réalisation de la recette (mins) :" Margin="10"/>
+                    <Entry Text="{Binding ToAdd.Time}"/>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Grid.Row="4" HorizontalOptions="Center">
+                    <Label Text="Coût de la recette :" Margin="10"/>
+                    <Picker SelectedIndex="{Binding ToAdd.Cost}" ItemsSource="{Binding CostR}"/>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Grid.Row="5" HorizontalOptions="Center">
+                    <Label Text="Difficulté de la recette :" Margin="10"/>
+                    <Picker SelectedItem="{Binding ToAdd.Level}" ItemsSource="{Binding LevelTS}" WidthRequest="200"/>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Grid.Row="6" HorizontalOptions="Center">
+                    <Label Text="Etapes de la recette :" Margin="10"/>
+                    <Entry Text="{Binding ToAdd.Steps}" WidthRequest="800"/>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Grid.Row="7" HorizontalOptions="Center">
+                    <Label Text="Catégorie de la recette :" Margin="10"/>
+                    <Picker SelectedItem="{Binding ToAdd.Category}" ItemsSource="{Binding Categories}"/>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Grid.Row="8" HorizontalOptions="Center">
+                    <Label Text="Nombre d'ingrédients :" Margin="10"/>
+                    <Entry Text="{Binding NbIngs}"/>
+                </HorizontalStackLayout>
+
+                <Button Clicked="Ings_Clicked" Grid.Row ="9" WidthRequest="180" Text="Passer aux ingrédients"/>
+                
+                
+            </Grid>
+       
+    </Grid>
+
+
+</ContentPage>

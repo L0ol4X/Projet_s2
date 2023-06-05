@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:local="clr-namespace:app"
+             BackgroundColor="Bisque"
+             x:Class="app.Favorites"
+             Title="Favorites">
+
+
+
+    <Grid RowDefinitions="auto,auto,*">
+
+        <local:Head Grid.Row="0"/>
+
+        <StackLayout Grid.Row ="1" Orientation="Horizontal" HorizontalOptions="Center" >
+            <Label Text="Mes favoris"
+                   FontSize="40"/>
+        </StackLayout>
+
+        <ScrollView Grid.Row="2">
+            <Grid Style="{StaticResource gridMain}" RowDefinitions="Auto">
+
+                <ScrollView>
+                    <FlexLayout HorizontalOptions="Center" BindableLayout.ItemsSource="{Binding}" Wrap="Wrap" >
+
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+
+                                <Button Style="{StaticResource buttonRecipe}" Margin="20"
+                                        ImageSource="{Binding ImageName}"
+                                        Text="{Binding Name}"
+                                        Clicked="But_Clicked"/>
+                            </DataTemplate>
+
+                        </BindableLayout.ItemTemplate>
+
+                    </FlexLayout>
+                </ScrollView>
+
+
+            </Grid>
+
+        </ScrollView>
+    </Grid>
+
+
+</ContentPage>

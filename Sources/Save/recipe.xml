@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BaseRecipe xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="Recipe" xmlns="http://schemas.datacontract.org/2004/07/Modele">
+  <Cat>4</Cat>
+  <Cost>1</Cost>
+  <Level>facile</Level>
+  <Name>sandwich jambon beurre</Name>
+  <Time>5</Time>
+  <Ings>
+    <Ingredient>
+      <Nom>pain</Nom>
+      <Qte>
+        <Qtite>1</Qtite>
+        <Unite></Unite>
+      </Qte>
+    </Ingredient>
+    <Ingredient>
+      <Nom>beurre</Nom>
+      <Qte>
+        <Qtite>5</Qtite>
+        <Unite>g</Unite>
+      </Qte>
+    </Ingredient>
+    <Ingredient>
+      <Nom>jambon</Nom>
+      <Qte>
+        <Qtite>3</Qtite>
+        <Unite>tranches</Unite>
+      </Qte>
+    </Ingredient>
+  </Ings>
+  <RatingsList />
+  <Steps>ajouter le beurre puis le jambon au pain préalablement coupé en deux</Steps>
+  <Type>sandwich</Type>
+</BaseRecipe>
